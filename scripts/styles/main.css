@@ -14,3 +14,9 @@ img.profile {
   background-size: cover;
   position:fixed;
 }
+
+.centered {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+}

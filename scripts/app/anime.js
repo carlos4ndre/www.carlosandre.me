@@ -1,6 +1,8 @@
 $(document).ready(function(){
-    var cssSelector = '.profile';
-    animate(cssSelector);
+  var profileImages = '.profile';
+  $(profileImages).each(function(index) {
+    animate($(this));
+  });
 });
 
 function makeNewPosition(){
@@ -14,13 +16,13 @@ function makeNewPosition(){
     return [nh,nw];
 }
 
-function animate(cssSelector){
+function animate(elem){
     var newq = makeNewPosition();
-    var oldq = $(cssSelector).offset();
+    var oldq = elem.offset();
     var speed = calcSpeed([oldq.top, oldq.left], newq);
 
-    $(cssSelector).animate({ top: newq[0], left: newq[1] }, speed, function(){
-      animate(cssSelector);
+    elem.animate({ top: newq[0], left: newq[1] }, speed, function(){
+      animate(elem);
     });
 };
 
